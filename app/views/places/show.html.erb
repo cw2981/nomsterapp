@@ -30,6 +30,11 @@
   </script>
 
 <div id="map"></div>
+<div class="clear"></div>
+<%= simple_form_form @comment, url: '#' do |f| %>
+<%= f.input :message %>
+<%= f.input :rating %>
+<%= f.submit "add a comment", class: 'btn btn-primary' %>
 <% end %>
 
 <br />
