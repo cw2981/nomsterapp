@@ -60,3 +60,14 @@
     </blockquote>
   </div>
 <% end %>
+
+<h1>Comments</h1>
+
+<% @place.comments.each do |comment| %>
+<div>
+  <blockquote>
+    <b><%= comment.rating %></b> -
+    <%= comment.message %>
+  </blockquote>
+  </div>
+  <% end %>
