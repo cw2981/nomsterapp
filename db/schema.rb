@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_000530) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.string "caption"
+    t.integer "place_id"
   end
 
   create_table "places", force: :cascade do |t|
