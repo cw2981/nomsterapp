@@ -96,7 +96,10 @@
       <div class="modal-body">
           <%= f.input :picture %>
           <%= f.input :caption %>
-      
+           <div class="modal footer">
+           < button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
+          </div>
       <% end %>
 </div>
 <% end %>
