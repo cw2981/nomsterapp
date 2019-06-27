@@ -23,7 +23,27 @@
     </blockquote>
     <% end %>
   </div>
-
 <% end %>
   </div>
-  
+ <div class=photo-display>
+         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+      <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+           <div class="modal footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'create', class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+    
+      <% @place.photos.each do |photo| %>
+      <% if photo.picture.present? %>
+      <%= image_tag photo.picture.url %>
+      <% end %>
+      <% if photo.caption.present? %>
+        <%= photo.caption %>
+      <% end %>
+    <% end %>
+    </div>

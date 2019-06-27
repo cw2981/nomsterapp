@@ -85,14 +85,14 @@
   <% end %>
 </div>
 
-
+      <div class=photo-display>
          <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
       <div class="modal-body">
           <%= f.input :picture %>
           <%= f.input :caption %>
            <div class="modal footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
+          <%= f.submit 'create', class: 'btn btn-primary' %>
           </div>
       <% end %>
     </div>
