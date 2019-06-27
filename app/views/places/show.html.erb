@@ -84,22 +84,20 @@
     </div>
   <% end %>
 </div>
- 
-        <h4 class="modal-title" id="myModalLabel">Add a Picture</h4>
-      </div> 
-    <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+
+
+         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
       <div class="modal-body">
           <%= f.input :picture %>
           <%= f.input :caption %>
-        </div>
            <div class="modal footer">
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
           </div>
       <% end %>
-
-<% end %>
-    <div class="photo-display">
+    </div>
+  <% end %>
+    
       <% @place.photos.each do |photo| %>
       <% if photo.picture.present? %>
       <%= image_tag photo.picture.url %>
