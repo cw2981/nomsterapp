@@ -9,8 +9,10 @@
   <% if place.user.present? %>
   <small><%= place.user.email %></small>
   <% end %>
+
+
   
-   <% if place.comments.present? %>
+  <% if place.comments.present? %>
   <div class="col-12">
     <blockquote>
       <% if place.comments.last.humanized_rating.present? %>
@@ -20,6 +22,18 @@
       <small><%= place.comments.last.user.email %></small>
     </blockquote>
     <% end %>
-  </div> 
-<% end %>
+  </div>
 
+<% end %>
+  </div>
+
+  <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+      <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+           <div class="modal footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+</div>
