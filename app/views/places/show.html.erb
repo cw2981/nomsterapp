@@ -69,14 +69,7 @@
   </div>
 </div>
 
-<div class="photo-display">
-  <% @place.photos.each do |photo| %>
-  <%= image_tag photos.picture.url %>
-  <% if photo.caption.present? %>
-    <%= photo.caption %>
-  <% end %>
-<% end %>
-</div>
+
 
 <div class="row">
   <% @place.comments.each do |comment| %>
@@ -91,7 +84,9 @@
     </div>
   <% end %>
 </div>
-
+ 
+        <h4 class="modal-title" id="myModalLabel">Add a Picture</h4>
+      </div> 
     <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
       <div class="modal-body">
           <%= f.input :picture %>
@@ -101,5 +96,15 @@
           <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
           </div>
       <% end %>
-</div>
+    </div>
 <% end %>
+    <div class="photo-display">
+      <% @place.photos.each do |photo| %>
+      <% if photo.picture.present? %>
+      <%= image_tag photo.picture.url %>
+      <% end %>
+      <% if photo.caption.present? %>
+        <%= photo.caption %>
+      <% end %>
+    <% end %>
+    </div>
