@@ -92,8 +92,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add a Photo</h4>
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h4 class="modal-title">Add a Picture</h4>
       </div>
       
         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
@@ -112,19 +112,18 @@
 </div>
 
 <div class="col-10 offset-1">
-  <h1 class="float-left">Photos</h1>
-  <!-- Button trigger modal for Photos -->
-
-<div class="row">
-  <div class="col-10 offset-1">
-    <% @places.photo.any? %>
-    <% @place.photos.each do |photo| %>
-      <div>
-        <blockquote>
-          <img class='resize'><%= image_tag photo.picture %></img>
-            <b><%= photo.caption %></b> -
-          <small><%= photo.user.email %></small>
-        </blockquote>
-    <% end %>
+ <h1 class = "photos-title">Photos</h1>
+<br />
+<br />
+<div class = "row">
+  <% @place.photos.each do |photo| %>
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag photo.picture.url %>
+      <% if photo.caption.present? %>
+        <div class = "caption">
+          <%= photo.caption %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -25,15 +25,3 @@
   </div>
   <% end %>
 </div>
-
-   <% @places.photos.any? %>
-    <% @place.photos.each do |photo| %>
-      <div>
-        <blockquote>
-          <%= image_tag photo.picture %>
-            <b><%= photo.caption %></b> -
-          <small><%= photo.user.email %></small>
-        </blockquote>
-      </div>
-    <% end %>
-<div class="clear"></div>
