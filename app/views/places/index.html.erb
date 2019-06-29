@@ -24,26 +24,32 @@
     <% end %>
   </div>
 <% end %>
-  </div>
- <div class=photo-display>
-         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-      <div class="modal-body">
-          <%= f.input :picture %>
-          <%= f.input :caption %>
-           <div class="modal footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit 'create', class: 'btn btn-primary' %>
-          </div>
-      <% end %>
-    </div>
-  <% end %>
-    
-      <% @place.photos.each do |photo| %>
-      <% if photo.picture.present? %>
-      <%= image_tag photo.picture.url %>
-      <% end %>
-      <% if photo.caption.present? %>
-        <%= photo.caption %>
-      <% end %>
+</div>
+
+<div class="col-10 offset-1">
+  <h1 class="float-left">Photos</h1>
+  <!-- Button trigger modal for Photos -->
+
+  <button type="button" class="btn btn-warning btn-md float-right" data-toggle="modal" data-target="#myModal2">
+    Add a Photo
+  </button>
+</div>
+<div class="clear"></div>
+<div class="row">
+  <div class="col-10 offset-1">
+   
+    <% place.photos.each do |photo| %>
+      <div>
+        <blockquote>
+          <img class='place-picture'>
+          <%= image_tag photo.picture %></img>
+            <b><%= photo.caption %></b> -
+          <small><%= photo.user.email %></small>
+        </blockquote>
+      </div>
     <% end %>
-    </div>
+  </div>
+<% end %>
+</div>
+
+<div class="clear"></div>
