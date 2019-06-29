@@ -29,6 +29,8 @@
 &callback=initMap">
   </script>
 <div id="map"></div>
+<% end %>
+
 <div class="clear"></div>
 <div class="float-right">
   <% if current_user && current_user == @place.user %>
@@ -119,9 +121,8 @@
 <div class="row">
   <div class="col-10 offset-1">
 
+<% if @place.photos.any? %>
     <% @place.photos.each do |photo| %>
-    <% if @place.photos.any? %>
-      <% end %>
       <div>
         <blockquote>
           <img class='place-picture'>
