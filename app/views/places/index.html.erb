@@ -36,14 +36,11 @@
 <div class="clear"></div>
 <div class="row">
   <div class="col-10 offset-1">
-   
+   <% place.photos.any? %>
     <% @place.photos.each do |photo| %>
-    <% place.photos.any? %>
-    <% end %>
       <div>
         <blockquote>
-          <img class='place-picture'>
-          <%= image_tag photo.picture %></img>
+          <%= image_tag photo.picture %>
             <b><%= photo.caption %></b> -
           <small><%= photo.user.email %></small>
         </blockquote>
@@ -52,5 +49,5 @@
   </div>
 <% end %>
 </div>
-
 <div class="clear"></div>
+<% end %>
