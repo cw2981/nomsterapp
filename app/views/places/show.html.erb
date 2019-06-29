@@ -92,16 +92,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">x</button>
-        <h4 class="modal-title">Add a picture</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a Photo</h4>
       </div>
-      <div class="modal-body">
+      
         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
           <%= f.input :picture %>
           <%= f.input :caption %>
+      <div class="modal-body">
       </div>
-      <div class="modal-footer">
-        <%= f.submit "Add a picture", class: 'btn btn-warning' %>
+      
+        <%= f.submit "Add a Photo", class: 'btn btn-warning' %>
+        <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <% end %>
       </div>
@@ -113,26 +115,16 @@
   <h1 class="float-left">Photos</h1>
   <!-- Button trigger modal for Photos -->
 
-  <button type="button" class="btn btn-warning btn-md float-right" data-toggle="modal" data-target="#myModal2">
-    Add a Photo
-  </button>
-</div>
-<div class="clear"></div>
 <div class="row">
   <div class="col-10 offset-1">
-
-<% if @place.photos.any? %>
+    <% @places.photo.any? %>
     <% @place.photos.each do |photo| %>
       <div>
         <blockquote>
-          <img class='place-picture'>
-          <%= image_tag photo.picture %></img>
+          <img class='resize'><%= image_tag photo.picture %></img>
             <b><%= photo.caption %></b> -
           <small><%= photo.user.email %></small>
         </blockquote>
-      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
 </div>
-<div class="clear"></div>
