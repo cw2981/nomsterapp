@@ -117,20 +117,20 @@
 </div>
 
 <div class="col-10 offset-1">
- <h1 class = "photos-title">Photos</h1>
-<br />
-<br />
-<div class = "row">
-  <% if @place.photos.any? %>
-  <% @place.photos.each do |photo| %>
-    <div class="col-xs-12 col-sm-6">
-      <%= image_tag photo.picture.url %>
-      <% if photo.caption.present? %>
-        <div class = "caption">
+  <h1 class = "photos-title">Photos</h1>
+    <br />
+    <br />
+    <div class = "row">
+         <div class="img">
+          <% if @place.photos.any? %>
+       <% @place.photos.each do |photo| %>
+          <%= image_tag photo.picture.url %></div>
+          <% if photo.caption.present? %>
+        <div class="caption">
           <%= photo.caption %>
         </div>
+        <% end %>
       <% end %>
-    </div>
     <% end %>
+  </div>
 </div>
-<% end %>
