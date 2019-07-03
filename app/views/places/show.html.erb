@@ -120,11 +120,13 @@
   <h1 class = "photos-title">Photos</h1>
     <br />
     <br />
-    <div class = "row">
-         <div class="pimg">
-          <% if @place.photos.any? %>
-       <% @place.photos.each do |photo| %>
-          <%= image_tag photo.picture.url %></div>
+            
+      <% if @place.photos.any? %>
+       <% @place.photos.each do |photo| %> 
+       <div class = "row"> 
+       <div class="pimg">
+          <%= image_tag photo.picture.url %>  
+          </div>
           <% if photo.caption.present? %>
         <div class="caption">
           <%= photo.caption %>
